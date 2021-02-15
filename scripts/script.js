@@ -1,14 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
   /* Create HTML Elements */
 
-  /* Main Container */
+  /* Main Elements Variables */
   const body = document.querySelector('body')
   const container = document.createElement('div')
-  container.setAttribute('class', 'container')
-  body.appendChild(container)
 
-/* Books Table */
-    
+  const table = document.createElement('table')
+  const row = document.createElement('tr')
+  const headingText = ['Title', 'Author', 'Pages', 'Read Status']
+
+  /* Create Main Container */
+  function createContainer () {
+    container.setAttribute('class', 'container')
+    body.appendChild(container)
+  }
+  createContainer()
+
+  /* Create Table */
+  function createTable () {
+    table.setAttribute('border', '1')
+    container.appendChild(table)
+  }
+  createTable()
+
+  /* Create Heading */
+  function createHeading () {
+    table.appendChild(row)
+    for (let i = 0; i < headingText.length; i++) {
+      const heading = document.createElement('th')
+      heading.innerHTML = headingText[i]
+      row.appendChild(heading)
+    }
+  }
+  createHeading()
+
   const myLibrary = [1, 2, 3, 4, 5]
 
   /* Book Function */
