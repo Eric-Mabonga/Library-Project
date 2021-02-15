@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
   /* Main Elements Variables */
   const body = document.querySelector('body')
   const container = document.createElement('div')
-
   const table = document.createElement('table')
   const row = document.createElement('tr')
   const headingText = ['Title', 'Author', 'Pages', 'Read Status']
@@ -33,6 +32,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   createHeading()
+
+  /* Create Rows */
+  function createRows () {
+    const rows = document.createElement('tr')
+    table.appendChild(rows)
+    for (let i = 0; i < headingText.length; i++) {
+      const columns = document.createElement('td')
+      columns.innerHTML = headingText[i]
+      rows.appendChild(columns)
+    }
+  }
+  //
+
+  /* Button */
+  const button = document.createElement('button')
+  container.appendChild(button)
+  button.innerHTML = 'New Book'
+  button.addEventListener('click', () => {
+    createRows()
+  })
 
   const myLibrary = [1, 2, 3, 4, 5]
 
